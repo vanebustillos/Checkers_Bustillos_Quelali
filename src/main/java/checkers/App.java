@@ -3,6 +3,7 @@
  */
 package checkers;
 
+import checkers.bot.bustillos_quelali.BustillosQuelaliBot;
 import checkers.bot.gray.GrayRandomBot;
 
 import java.util.Optional;
@@ -10,11 +11,20 @@ import java.util.Optional;
 public class App {
 
     public static void main(String[] args) {
+        BustillosQuelaliBot bot = new BustillosQuelaliBot();
+        CheckersBoard game = CheckersBoard.initBoard();
+        bot.checkTerminalState(game);
+        for (CheckersBoard board:bot.successors(game)) {
+
+            board.printBoard();
+        }
+        /*
         CheckersBoard game = CheckersBoard.initBoard();
         CheckersPlayer player1 = new KeyboardPlayer();
         CheckersPlayer player2 = new GrayRandomBot();
         Optional<CheckersPlayer> loser = game.play(player1, player2);
         loser.ifPresent(//
                 checkersPlayer -> System.out.println("VICTORY! " + checkersPlayer.getClass().getName()));
+*/
     }
 }
