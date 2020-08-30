@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Stream;
 
 public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer{
 
@@ -36,25 +37,50 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
         List<CheckersMove> possibleCaptures = child.possibleCaptures();
         List<CheckersMove> possibleMoves = child.possibleMoves();
 
-        for (CheckersMove capture: possibleCaptures) {
-            try {
-                child.processMove(capture);
-                children.add(child);
-            } catch (BadMoveException ex) {
-                System.err.println(ex.getMessage());
+            for (CheckersMove capture : possibleCaptures) {
+                try {
+                    child.processMove(capture);
+                    children.add(child);
+                } catch (BadMoveException ex) {
+                    System.err.println(ex.getMessage());
+                }
             }
-        }
-        for(CheckersMove move: possibleMoves){
-            try {
-                child.processMove(move);
-                children.add(child);
-            } catch (BadMoveException ex) {
-                System.err.println(ex.getMessage());
+            for(CheckersMove move: possibleMoves){
+                try {
+                    child.processMove(move);
+                    children.add(child);
+                } catch (BadMoveException ex) {
+                    System.err.println(ex.getMessage());
+                }
             }
-        }
+
+
         return children;
     }
 
+    public Integer getUtility(Player player,CheckersBoard board){
+        if (checkTerminalState(board)) {
+            if (player == board.getCurrentPlayer()) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
+        return 0;
+    }
+
+    public Integer miniMax(Player player, CheckersBoard board){
+        List<CheckersBoard> successors = successors(board);
+        if(!successors.isEmpty()){
+            getUtility(player,board);
+        }
+        Stream<Integer> utilities = successors.stream()//
+                .map(successor -> miniMax(player, successor));
+        if (board.getCurrentPlayer() == player) {
+            return utilities.max(Integer::compareTo).orElseThrow();
+        }
+        return utilities.min(Integer::compareTo).orElseThrow();
+    }
 
     @Override
     public CheckersMove play(CheckersBoard board) {

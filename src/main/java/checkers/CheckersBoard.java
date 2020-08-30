@@ -26,6 +26,7 @@ public class CheckersBoard {
 	public char[][] getBoard() {
 		return board;
 	}
+	public Player getCurrentPlayer() {return currentPlayer; }
 
 	public enum Player {
 		RED, BLACK;
