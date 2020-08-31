@@ -86,14 +86,15 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
         return 0;
     }
     public BestAction miniMax(CheckersBoard board, int depth) {
-    //public BestAction miniMax(CheckersBoard board)  {
         Map<CheckersBoard, CheckersMove> successors = getSuccessors(board);
-        if (successors.isEmpty() || depth == 4) {
-        //if (successors.isEmpty()) { //if is terminal state
-            getUtility(board);
+        CheckersMove bestMove = null;
+        if(successors.size() == 1){
+           bestMove =  successors.get(0);
+        }
+        if (successors.isEmpty() || depth == 4) { //if is terminal state
+            return new BestAction(bestMove,getUtility(board));
         }
         return getBestAction(board,depth);
-        //return getBestAction(board);
     }
     public BestAction getBestAction(CheckersBoard board, int depth){
     //public BestAction getBestAction(CheckersBoard board)  {
