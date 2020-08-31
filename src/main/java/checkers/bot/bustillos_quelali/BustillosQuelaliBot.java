@@ -7,13 +7,11 @@ import checkers.exception.BadMoveException;
 
 import java.util.*;
 
-public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer {
+public class BustillosQuelaliBot implements CheckersPlayer {
 
-    Player currentPlayer = Player.RED;
-    Map<CheckersMove,Integer> utilities = new HashMap<>();
-    Map<CheckersBoard, CheckersMove> strategy = new HashMap<>();
+    CheckersBoard.Player currentPlayer = CheckersBoard.Player.RED;
 
-    private class BestAction {
+    private static class BestAction {
         CheckersMove move;
         int punctuation;
 
@@ -41,8 +39,8 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
         return false;
     }
 
-    public Map<CheckersBoard,CheckersMove> getSuccessors(CheckersBoard board) {
-        Map<CheckersBoard,CheckersMove> successors = new HashMap<>();
+    public Map<CheckersBoard, CheckersMove> getSuccessors(CheckersBoard board) {
+        Map<CheckersBoard, CheckersMove> successors = new HashMap<>();
 
         if (checkTerminalState(board)) {
             return successors;
@@ -75,7 +73,7 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
         return successors;
     }
 
-    public Integer getUtility( CheckersBoard board) {
+    public Integer getUtility(CheckersBoard board) {
         if (checkTerminalState(board)) {
             if (currentPlayer == board.getCurrentPlayer()) {
                 return 1;
@@ -85,62 +83,52 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
         }
         return 0;
     }
+
     public BestAction miniMax(CheckersBoard board, int depth) {
         Map<CheckersBoard, CheckersMove> successors = getSuccessors(board);
         CheckersMove bestMove = null;
-        if(successors.size() == 1){
-           bestMove =  successors.get(0);
+        if (successors.size() == 1) {
+            bestMove = successors.get(0);
         }
         if (successors.isEmpty() || depth == 5) { //if is terminal state
-            return new BestAction(bestMove,getUtility(board));
+            return new BestAction(bestMove, getUtility(board));
         }
-        return getBestAction(board,depth);
+        return getBestAction(board, depth);
     }
-    public BestAction getBestAction(CheckersBoard board, int depth){
-    //public BestAction getBestAction(CheckersBoard board)  {
+
+    public BestAction getBestAction(CheckersBoard board, int depth) {
         Map<CheckersBoard, CheckersMove> successors = getSuccessors(board);
         int currentPunctuation;
         CheckersMove currentMove = null;
 
-        if(board.getCurrentPlayer() == currentPlayer){
+        if (board.getCurrentPlayer() == currentPlayer) {
             currentPunctuation = Integer.MIN_VALUE;
-        } else{
+        } else {
             currentPunctuation = Integer.MAX_VALUE;
         }
 
-        //for (CheckersBoard successor: successors.keySet()) {
-        for ( Map.Entry<CheckersBoard, CheckersMove> successor : successors.entrySet()) {
-
+        for (Map.Entry<CheckersBoard, CheckersMove> successor : successors.entrySet()) {
             BestAction bestAction = miniMax(successor.getKey(), depth + 1);
-            //BestAction bestAction = miniMax(successor);
-               //utilities.put(bestAction.move, bestAction.punctuation);
 
-               if(board.getCurrentPlayer() == currentPlayer){
-                   if(bestAction.punctuation > currentPunctuation){
-                       currentPunctuation = bestAction.punctuation;
-                       //currentMove = bestAction.move;
-                       currentMove = successor.getValue();
-                       //utilities.put(currentMove,currentPunctuation);
-                       //strategy.put(successor, currentMove);
-                   }
-               } else {
-                   if(bestAction.punctuation < currentPunctuation){
-                       currentPunctuation = bestAction.punctuation;
-                       //currentMove = bestAction.move;
-                       currentMove = successor.getValue();
-                       //utilities.put(currentMove,currentPunctuation);
-                       //strategy.put(successor, currentMove);
-                   }
-               }
+            if (board.getCurrentPlayer() == currentPlayer) {
+                if (bestAction.punctuation > currentPunctuation) {
+                    currentPunctuation = bestAction.punctuation;
+                    //currentMove = bestAction.move;
+                    currentMove = successor.getValue();
+                }
+            } else {
+                if (bestAction.punctuation < currentPunctuation) {
+                    currentPunctuation = bestAction.punctuation;
+                    //currentMove = bestAction.move;
+                    currentMove = successor.getValue();
+                }
+            }
         }
-        return new BestAction(currentMove,currentPunctuation);
+        return new BestAction(currentMove, currentPunctuation);
     }
-
 
     @Override
     public CheckersMove play(CheckersBoard board) {
-        return miniMax(board, 0).move; ////
-
+        return miniMax(board, 0).move;
     }
-
 }
