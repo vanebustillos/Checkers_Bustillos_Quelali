@@ -91,7 +91,7 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
         if(successors.size() == 1){
            bestMove =  successors.get(0);
         }
-        if (successors.isEmpty() || depth == 4) { //if is terminal state
+        if (successors.isEmpty() || depth == 5) { //if is terminal state
             return new BestAction(bestMove,getUtility(board));
         }
         return getBestAction(board,depth);
