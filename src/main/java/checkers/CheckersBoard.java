@@ -51,10 +51,6 @@ public class CheckersBoard {
 		return otherPlayer(currentPlayer);
 	}
 
-	public Player getCurrentPlayer() {
-		return currentPlayer;
-	}
-
 	public CheckersBoard clone() {
 		CheckersBoard clone = new CheckersBoard();
 		for (int i=0;i<8;i++) {
