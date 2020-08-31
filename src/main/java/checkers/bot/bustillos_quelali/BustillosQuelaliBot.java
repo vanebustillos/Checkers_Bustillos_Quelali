@@ -29,11 +29,15 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
         }
         if (!board.isMovePossible() && !board.isCapturePossible()) { //current player
             board.switchTurn();
-            if (!board.isMovePossible() && !board.isCapturePossible()) { // opponent player
+            try {
+                if (!board.isMovePossible() && !board.isCapturePossible()) { // opponent player
+                    return true;//if is a tie.
+                }
+            } finally {
                 board.switchTurn();
-                return true;//if is a tie.
             }
         }
+
         return false;
     }
 
@@ -82,7 +86,7 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
     public BestAction miniMax(CheckersBoard board) {
         Map<CheckersBoard, CheckersMove> successors = getSuccessors(board);
         //if (successors.isEmpty() || depth == 30) {
-        if (successors.isEmpty()) {
+        if (successors.isEmpty()) { //if is terminal state
             getUtility(board);
         }
         //return getBestAction(board,depth);
@@ -127,7 +131,7 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
 
     @Override
     public CheckersMove play(CheckersBoard board) {
-        miniMax(board);
+        miniMax(board); ////
         return strategy.get(board);
     }
 
