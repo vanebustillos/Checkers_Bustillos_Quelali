@@ -6,14 +6,12 @@ import checkers.CheckersPlayer;
 import checkers.exception.BadMoveException;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer {
 
     Player currentPlayer = Player.BLACK;
-    //Set<BestAction> strategy = new HashSet<BestAction>();
-    Map<CheckersMove,Integer> strategy = new HashMap<>();
-
+    Map<CheckersMove,Integer> utilities = new HashMap<>();
+    Map<CheckersBoard, CheckersMove> strategy = new HashMap<>();
 
     private class BestAction {
         CheckersMove move;
@@ -26,8 +24,7 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
     }
 
     public boolean checkTerminalState(CheckersBoard board) {
-        List<CheckersMove> possibleCaptures = board.possibleCaptures();
-        if (board.countPiecesOfPlayer(Player.BLACK) == 0 || board.countPiecesOfPlayer(Player.RED) == 0) {
+        if (board.countPiecesOfPlayer(board.getCurrentPlayer()) == 0) {
             return true;
         }
         if (!board.isMovePossible() && !board.isCapturePossible()) { //current player
@@ -40,12 +37,11 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
         return false;
     }
 
-    public Map<CheckersBoard,CheckersMove> successors(CheckersBoard board) {
-        //List<CheckersBoard> children = new ArrayList<>();
-        Map<CheckersBoard, CheckersMove> checkers = new HashMap<>();
+    public Map<CheckersBoard,CheckersMove> getSuccessors(CheckersBoard board) {
+        Map<CheckersBoard,CheckersMove> successors = new HashMap<>();
 
         if (checkTerminalState(board)) {
-            return checkers;
+            return successors;
         }
         CheckersBoard child = board.clone();
         List<CheckersMove> possibleCaptures = child.possibleCaptures();
@@ -55,7 +51,7 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
             try {
                 child.processMove(capture);
                 //children.add(child);
-                checkers.put(child,capture);
+                successors.put(child,capture);
             } catch (BadMoveException ex) {
                 System.err.println(ex.getMessage());
             }
@@ -64,13 +60,12 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
             try {
                 child.processMove(move);
                 //children.add(child);
-                checkers.put(child,move);
+                successors.put(child,move);
             } catch (BadMoveException ex) {
                 System.err.println(ex.getMessage());
             }
         }
-        //return children;
-        return checkers;
+        return successors;
     }
 
     public Integer getUtility( CheckersBoard board) {
@@ -83,17 +78,19 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
         }
         return 0;
     }
-
-    public BestAction miniMax(CheckersBoard board, int depth) {
-        Map<CheckersBoard, CheckersMove> successors = successors(board);
-        if (successors.isEmpty() || depth == 30) {
+    //public BestAction miniMax(CheckersBoard board, int depth) {
+    public BestAction miniMax(CheckersBoard board) {
+        Map<CheckersBoard, CheckersMove> successors = getSuccessors(board);
+        //if (successors.isEmpty() || depth == 30) {
+        if (successors.isEmpty()) {
             getUtility(board);
         }
-        return getBestAction(board,depth);
+        //return getBestAction(board,depth);
+        return getBestAction(board);
     }
-
-    public BestAction getBestAction(CheckersBoard board, int depth){
-        Map<CheckersBoard, CheckersMove> successors = successors(board);
+    //public BestAction getBestAction(CheckersBoard board, int depth){
+    public BestAction getBestAction(CheckersBoard board){
+        Map<CheckersBoard, CheckersMove> successors = getSuccessors(board);
         int currentPunctuation;
         CheckersMove currentMove = null;
 
@@ -104,22 +101,23 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
         }
 
         for (CheckersBoard successor: successors.keySet()) {
-               BestAction bestAction = miniMax(successor, depth + 1);
-               strategy.put(bestAction.move, bestAction.punctuation);
+            //BestAction bestAction = miniMax(successor, depth + 1);
+            BestAction bestAction = miniMax(successor);
+               utilities.put(bestAction.move, bestAction.punctuation);
 
                if(board.getCurrentPlayer() == currentPlayer){
                    if(bestAction.punctuation > currentPunctuation){
                        currentPunctuation = bestAction.punctuation;
                        currentMove = bestAction.move;
-                       strategy.put(currentMove,currentPunctuation);
-                       successors.put(successor, currentMove);
+                       utilities.put(currentMove,currentPunctuation);
+                       strategy.put(successor, currentMove);
                    }
                } else {
                    if(bestAction.punctuation < currentPunctuation){
                        currentPunctuation = bestAction.punctuation;
                        currentMove = bestAction.move;
-                       strategy.put(currentMove,currentPunctuation);
-                       successors.put(successor, currentMove);
+                       utilities.put(currentMove,currentPunctuation);
+                       strategy.put(successor, currentMove);
                    }
                }
         }
@@ -129,7 +127,8 @@ public class BustillosQuelaliBot extends CheckersBoard implements CheckersPlayer
 
     @Override
     public CheckersMove play(CheckersBoard board) {
-        return null;
+        miniMax(board);
+        return strategy.get(board);
     }
 
 }
