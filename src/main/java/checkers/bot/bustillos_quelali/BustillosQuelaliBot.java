@@ -9,7 +9,7 @@ import java.util.*;
 
 public class BustillosQuelaliBot implements CheckersPlayer {
 
-    CheckersBoard.Player currentPlayer = CheckersBoard.Player.RED;
+    CheckersBoard.Player currentPlayer;
 
     private static class BestAction {
         CheckersMove move;
@@ -35,7 +35,6 @@ public class BustillosQuelaliBot implements CheckersPlayer {
                 board.switchTurn();
             }
         }
-
         return false;
     }
 
@@ -54,7 +53,7 @@ public class BustillosQuelaliBot implements CheckersPlayer {
                     child.processMove(capture);
                     successors.put(child, capture);
                 } catch (BadMoveException ex) {
-                    System.err.println(ex.getMessage());
+                    throw new IllegalStateException(ex.getMessage());
                 }
 
             }
@@ -65,7 +64,7 @@ public class BustillosQuelaliBot implements CheckersPlayer {
                     child.processMove(move);
                     successors.put(child, move);
                 } catch (BadMoveException ex) {
-                    System.err.println(ex.getMessage());
+                    throw new IllegalStateException(ex.getMessage());
                 }
 
             }
@@ -90,7 +89,7 @@ public class BustillosQuelaliBot implements CheckersPlayer {
         if (successors.size() == 1) {
             bestMove = successors.get(0);
         }
-        if (successors.isEmpty() || depth == 5) { //if is terminal state
+        if (successors.isEmpty() || depth == 4) { //if is terminal state
             return new BestAction(bestMove, getUtility(board));
         }
         return getBestAction(board, depth);
@@ -129,6 +128,7 @@ public class BustillosQuelaliBot implements CheckersPlayer {
 
     @Override
     public CheckersMove play(CheckersBoard board) {
+        currentPlayer = board.getCurrentPlayer();
         return miniMax(board, 0).move;
     }
 }
