@@ -73,23 +73,24 @@ public class BustillosQuelaliBot implements CheckersPlayer {
     }
 
     public Integer getUtility(CheckersBoard board) {
-        if (checkTerminalState(board)) {
-            if (currentPlayer == board.getCurrentPlayer()) {
-                return 1;
-            } else {
-                return -1;
-            }
-        }
-        return 0;
+        int numberOfPiecesMyPlayer = board.countPiecesOfPlayer(currentPlayer);
+        int numberOfPiecesOtherPlayer = board.countPiecesOfPlayer(getOtherPlayer());
+        return numberOfPiecesMyPlayer - numberOfPiecesOtherPlayer;
     }
-
+    public CheckersBoard.Player getOtherPlayer() {
+        if (currentPlayer == CheckersBoard.Player.BLACK) {
+            return CheckersBoard.Player.RED;
+        } else {
+            return CheckersBoard.Player.BLACK;
+        }
+    }
     public BestAction miniMax(CheckersBoard board, int depth) {
         Map<CheckersBoard, CheckersMove> successors = getSuccessors(board);
         CheckersMove bestMove = null;
         if (successors.size() == 1) {
             bestMove = successors.get(0);
         }
-        if (successors.isEmpty() || depth == 4) { //if is terminal state
+        if (checkTerminalState(board) || successors.isEmpty() || depth == 6 ) { //if is terminal state
             return new BestAction(bestMove, getUtility(board));
         }
         return getBestAction(board, depth);
