@@ -9,7 +9,7 @@ import java.util.*;
 
 public class BustillosQuelaliBot implements CheckersPlayer {
 
-    CheckersBoard.Player currentPlayer;
+    static CheckersBoard.Player myPlayer;
 
     private static class BestAction {
         CheckersMove move;
@@ -73,12 +73,12 @@ public class BustillosQuelaliBot implements CheckersPlayer {
     }
 
     public Integer getUtility(CheckersBoard board) {
-        int numberOfPiecesMyPlayer = board.countPiecesOfPlayer(currentPlayer);
+        int numberOfPiecesMyPlayer = board.countPiecesOfPlayer(myPlayer);
         int numberOfPiecesOtherPlayer = board.countPiecesOfPlayer(getOtherPlayer());
         return numberOfPiecesMyPlayer - numberOfPiecesOtherPlayer;
     }
     public CheckersBoard.Player getOtherPlayer() {
-        if (currentPlayer == CheckersBoard.Player.BLACK) {
+        if (myPlayer == CheckersBoard.Player.BLACK) {
             return CheckersBoard.Player.RED;
         } else {
             return CheckersBoard.Player.BLACK;
@@ -101,7 +101,7 @@ public class BustillosQuelaliBot implements CheckersPlayer {
         int currentPunctuation;
         CheckersMove currentMove = null;
 
-        if (board.getCurrentPlayer() == currentPlayer) {
+        if (board.getCurrentPlayer() == myPlayer) {
             currentPunctuation = Integer.MIN_VALUE;
         } else {
             currentPunctuation = Integer.MAX_VALUE;
@@ -110,7 +110,7 @@ public class BustillosQuelaliBot implements CheckersPlayer {
         for (Map.Entry<CheckersBoard, CheckersMove> successor : successors.entrySet()) {
             BestAction bestAction = miniMax(successor.getKey(), depth + 1);
 
-            if (board.getCurrentPlayer() == currentPlayer) {
+            if (board.getCurrentPlayer() == myPlayer) {
                 if (bestAction.punctuation > currentPunctuation) {
                     currentPunctuation = bestAction.punctuation;
                     //currentMove = bestAction.move;
@@ -129,7 +129,7 @@ public class BustillosQuelaliBot implements CheckersPlayer {
 
     @Override
     public CheckersMove play(CheckersBoard board) {
-        currentPlayer = board.getCurrentPlayer();
+        myPlayer = board.getCurrentPlayer();
         return miniMax(board, 0).move;
     }
 }

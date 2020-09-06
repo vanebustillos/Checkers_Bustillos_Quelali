@@ -3,7 +3,9 @@
  */
 package checkers;
 
+import checkers.bot.bustillos_quelali.BustillosQuelai_montecarloBot;
 import checkers.bot.bustillos_quelali.BustillosQuelaliBot;
+import checkers.bot.bustillos_quelali.BustillosQuelali_iterativeBot;
 import checkers.bot.gray.GrayRandomBot;
 
 import java.util.Optional;
@@ -15,7 +17,9 @@ public class App {
         CheckersBoard game = CheckersBoard.initBoard();
         //CheckersPlayer player1 = new KeyboardPlayer();
         CheckersPlayer player1 = new GrayRandomBot();
-        CheckersPlayer player2 = new BustillosQuelaliBot();
+        //CheckersPlayer player2 = new BustillosQuelaliBot();
+        //CheckersPlayer player2 = new BustillosQuelali_iterativeBot();
+        CheckersPlayer player2 = new BustillosQuelai_montecarloBot();
 
         Optional<CheckersPlayer> loser = game.play(player1, player2);
         loser.ifPresent(//
