@@ -7,6 +7,7 @@ import checkers.CheckersPlayer;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -27,13 +28,13 @@ public class BustillosQuelali_iterativeBot implements CheckersPlayer {
     public CheckersMove play(CheckersBoard board) {
         CheckersBoard.Player myPlayer = board.getCurrentPlayer();
         LinkedList<CheckersBoard> nodesToExpand = new LinkedList<>();
-        HashMap<CheckersBoard, Integer> strategy = new HashMap<>();
+        Map<CheckersBoard, Integer> strategy = new HashMap<>();
         nodesToExpand.add(board);
         while (!nodesToExpand.isEmpty()) {
             int utility = 0;
             CheckersBoard nodeToExpand = nodesToExpand.removeLast();
             List<CheckersMove> nodeSuccessors = getSuccessors(nodeToExpand);
-            HashMap<CheckersMove, Integer> moveScores = new HashMap<>();
+            Map<CheckersMove, Integer> moveScores = new HashMap<>();
             if (nodeSuccessors.isEmpty()) {
                 utility = getUtility(nodeToExpand, myPlayer);
                 moveScores.put(nodeSuccessors.get(0), utility);

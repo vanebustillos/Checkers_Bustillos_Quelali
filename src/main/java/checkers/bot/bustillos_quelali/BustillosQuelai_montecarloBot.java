@@ -71,7 +71,7 @@ public class BustillosQuelai_montecarloBot implements CheckersPlayer {
 
     private int getFinalScore(CheckersBoard.Player myPlayer, CheckersBoard board){
         Optional<CheckersBoard.Player> loser = checkLoser(board);
-        if(!loser.isPresent()){
+        if(loser.isEmpty()){
             return 0;
         }
         if(loser.get().equals(myPlayer)){
