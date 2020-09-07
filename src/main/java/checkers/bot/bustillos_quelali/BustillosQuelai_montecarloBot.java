@@ -65,12 +65,13 @@ public class BustillosQuelai_montecarloBot implements CheckersPlayer {
             int currentChildScore = moveScores.get(childMove);
             moveScores.put(childMove,currentChildScore + getFinalScore(myPlayer,randomBoard));
         }
-        return moveScores.entrySet().stream().max((move1,move2) -> Integer.compare(move1.getValue(), move2.getValue())).orElseThrow().getKey();
+        return null;
+        //return moveScores.entrySet().stream().max((move1,move2) -> Integer.compare(move1.getValue(), move2.getValue())).orElseThrow().getKey();
     }
 
     private int getFinalScore(CheckersBoard.Player myPlayer, CheckersBoard board){
         Optional<CheckersBoard.Player> loser = checkLoser(board);
-        if(loser.isEmpty()){
+        if(!loser.isPresent()){
             return 0;
         }
         if(loser.get().equals(myPlayer)){

@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a41811e4-4993-4355-bfef-541b05ab9c65" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/checkers/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/checkers/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/checkers/bot/bustillos_quelali/BustillosQuelai_montecarloBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/checkers/bot/bustillos_quelali/BustillosQuelai_montecarloBot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +31,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tictactoe" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RunManager">
@@ -69,21 +70,37 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1323" height="380" key="GridCell.Tab.0.bottom" timestamp="1599493446045">
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599494766112">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="380" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599493446045" />
-    <state width="1323" height="380" key="GridCell.Tab.0.center" timestamp="1599493446045">
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1599494766112" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1599495441583">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="380" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599493446045" />
-    <state width="1323" height="380" key="GridCell.Tab.0.left" timestamp="1599493446044">
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1599495441583" />
+    <state width="1323" height="154" key="GridCell.Tab.0.bottom" timestamp="1599496176399">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="380" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599493446044" />
-    <state width="1323" height="380" key="GridCell.Tab.0.right" timestamp="1599493446045">
+    <state width="1323" height="154" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599496176399" />
+    <state width="1323" height="154" key="GridCell.Tab.0.center" timestamp="1599496176399">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="380" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599493446045" />
+    <state width="1323" height="154" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599496176399" />
+    <state width="1323" height="154" key="GridCell.Tab.0.left" timestamp="1599496176399">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="154" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599496176399" />
+    <state width="1323" height="154" key="GridCell.Tab.0.right" timestamp="1599496176399">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="154" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599496176399" />
+    <state x="184" y="0" key="SettingsEditor" timestamp="1599496211186">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1599496211186" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599495299407">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599495299407" />
   </component>
 </project>
