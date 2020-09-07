@@ -69,7 +69,7 @@ public class BustillosQuelai_montecarloBot implements CheckersPlayer {
     }
 
     private int getFinalScore(CheckersBoard.Player myPlayer, CheckersBoard board){
-        Optional<CheckersBoard.Player> loser = board.checkLoser();
+        Optional<CheckersBoard.Player> loser = checkLoser(board);
         if(loser.isEmpty()){
             return 0;
         }
@@ -77,5 +77,22 @@ public class BustillosQuelai_montecarloBot implements CheckersPlayer {
             return -1;
         }
         return 1;
+    }
+    private Optional<CheckersBoard.Player> checkLoser(CheckersBoard board){
+        int numMyPieces = board.countPiecesOfPlayer(board.getCurrentPlayer());
+        if(numMyPieces == 0){
+            return Optional.of(board.getCurrentPlayer());
+        }
+        if (!board.isMovePossible() && !board.isCapturePossible()) { //current player
+            board.switchTurn();
+            try {
+                if (!board.isMovePossible() && !board.isCapturePossible()) { // opponent player
+                    return Optional.empty();
+                }
+            } finally {
+                board.switchTurn();
+            }
+        }
+        return Optional.empty();
     }
 }

@@ -22,6 +22,7 @@ public class BustillosQuelali_iterativeBot implements CheckersPlayer {
             return possibleMoves;
         }
     }
+
     @Override
     public CheckersMove play(CheckersBoard board) {
         CheckersBoard.Player myPlayer = board.getCurrentPlayer();
@@ -29,7 +30,7 @@ public class BustillosQuelali_iterativeBot implements CheckersPlayer {
         HashMap<CheckersBoard, Integer> strategy = new HashMap<>();
         nodesToExpand.add(board);
         while (!nodesToExpand.isEmpty()) {
-            int utility= 0;
+            int utility = 0;
             CheckersBoard nodeToExpand = nodesToExpand.removeLast();
             List<CheckersMove> nodeSuccessors = getSuccessors(nodeToExpand);
             HashMap<CheckersMove, Integer> moveScores = new HashMap<>();
@@ -37,20 +38,19 @@ public class BustillosQuelali_iterativeBot implements CheckersPlayer {
                 utility = getUtility(nodeToExpand, myPlayer);
                 moveScores.put(nodeSuccessors.get(0), utility);
             }
-            for ( CheckersMove node: nodeSuccessors ) {
+            for (CheckersMove node : nodeSuccessors) {
                 utility = getUtility(nodeToExpand, myPlayer);
                 moveScores.put(node, 0);
             }
             if (nodeToExpand.getCurrentPlayer() == myPlayer) {
-                int max
+                //int max
             }
 
         }
+        return null;
     }
 
-    private int max() {
 
-    }
 
     public Integer getUtility(CheckersBoard board, CheckersBoard.Player myPlayer) {
         int numberOfPiecesMyPlayer = board.countPiecesOfPlayer(myPlayer);
