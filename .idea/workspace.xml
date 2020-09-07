@@ -4,36 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a41811e4-4993-4355-bfef-541b05ab9c65" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/checkers/bot/bustillos_quelali/BustillosQuelaliBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/checkers/bot/bustillos_quelali/BustillosQuelaliBot.java" afterDir="false" />
-    </list>
+    <list default="true" id="80782379-5fbe-4759-a840-38afd0cb892c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ExternalProjectsData">
-    <projectState path="$PROJECT_DIR$">
-      <ProjectState />
-    </projectState>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectId" id="1hBnR4Wa5BRIncFilA9X74qP1g1" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tictactoe" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
-    <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -55,57 +30,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="a41811e4-4993-4355-bfef-541b05ab9c65" name="Default Changelist" comment="" />
-      <created>1599493345391</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1599493345391</updated>
-    </task>
     <servers />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599494766112">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1599494766112" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1599495441583">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1599495441583" />
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1599501840419">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599501840419" />
-    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1599501840418">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599501840418" />
-    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1599501840418">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599501840418" />
-    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1599501840418">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599501840418" />
-    <state x="184" y="0" key="SettingsEditor" timestamp="1599496211186">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1599496211186" />
-    <state x="615" y="174" width="657" height="680" key="dock-window-1" timestamp="1599500748312">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="615" y="174" width="657" height="680" key="dock-window-1/0.0.1366.728@0.0.1366.728" timestamp="1599500748312" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1599501274529">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1599501274529" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599495299407">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599495299407" />
   </component>
 </project>
