@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a41811e4-4993-4355-bfef-541b05ab9c65" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/checkers/bot/bustillos_quelali/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/checkers/bot/bustillos_quelali/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/checkers/bot/bustillos_quelali/BustillosQuelaliBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/checkers/bot/bustillos_quelali/BustillosQuelaliBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/checkers/bot/bustillos_quelali/BustillosQuelali_iterativeBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/checkers/bot/bustillos_quelali/BustillosQuelali_iterativeBot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,30 +76,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1599495441583" />
-    <state width="1323" height="370" key="GridCell.Tab.0.bottom" timestamp="1599498057342">
+    <state width="1323" height="178" key="GridCell.Tab.0.bottom" timestamp="1599500825650">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="370" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599498057342" />
-    <state width="1323" height="370" key="GridCell.Tab.0.center" timestamp="1599498057342">
+    <state width="1323" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599500825650" />
+    <state width="1323" height="178" key="GridCell.Tab.0.center" timestamp="1599500825649">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="370" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599498057342" />
-    <state width="1323" height="370" key="GridCell.Tab.0.left" timestamp="1599498057341">
+    <state width="1323" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599500825649" />
+    <state width="1323" height="178" key="GridCell.Tab.0.left" timestamp="1599500825649">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="370" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599498057341" />
-    <state width="1323" height="370" key="GridCell.Tab.0.right" timestamp="1599498057342">
+    <state width="1323" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599500825649" />
+    <state width="1323" height="178" key="GridCell.Tab.0.right" timestamp="1599500825650">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="370" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599498057342" />
+    <state width="1323" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599500825650" />
     <state x="184" y="0" key="SettingsEditor" timestamp="1599496211186">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1599496211186" />
-    <state x="0" y="0" width="657" height="680" key="dock-window-1" timestamp="1599499040529">
+    <state x="615" y="174" width="657" height="680" key="dock-window-1" timestamp="1599500748312">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" width="657" height="680" key="dock-window-1/0.0.1366.728@0.0.1366.728" timestamp="1599499040529" />
+    <state x="615" y="174" width="657" height="680" key="dock-window-1/0.0.1366.728@0.0.1366.728" timestamp="1599500748312" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599495299407">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

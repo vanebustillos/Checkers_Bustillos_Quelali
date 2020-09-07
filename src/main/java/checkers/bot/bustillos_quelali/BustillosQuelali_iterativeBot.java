@@ -4,10 +4,7 @@ import checkers.CheckersBoard;
 import checkers.CheckersMove;
 import checkers.CheckersPlayer;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -28,30 +25,29 @@ public class BustillosQuelali_iterativeBot implements CheckersPlayer {
     public CheckersMove play(CheckersBoard board) {
         CheckersBoard.Player myPlayer = board.getCurrentPlayer();
         LinkedList<CheckersBoard> nodesToExpand = new LinkedList<>();
-        Map<CheckersBoard, Integer> strategy = new HashMap<>();
         nodesToExpand.add(board);
         while (!nodesToExpand.isEmpty()) {
             int utility = 0;
             CheckersBoard nodeToExpand = nodesToExpand.removeLast();
             List<CheckersMove> nodeSuccessors = getSuccessors(nodeToExpand);
             Map<CheckersMove, Integer> moveScores = new HashMap<>();
-            if (nodeSuccessors.isEmpty()) {
-                utility = getUtility(nodeToExpand, myPlayer);
-                moveScores.put(nodeSuccessors.get(0), utility);
-            }
+
             for (CheckersMove node : nodeSuccessors) {
                 utility = getUtility(nodeToExpand, myPlayer);
-                moveScores.put(node, 0);
+                moveScores.put(node, utility);
             }
-            if (nodeToExpand.getCurrentPlayer() == myPlayer) {
-                //int max
+            if(nodeSuccessors.isEmpty()) {
+                if (nodeToExpand.getCurrentPlayer() == myPlayer) {
+                    Map.Entry<CheckersMove, Integer> maxAction = Collections.max(moveScores.entrySet(), Comparator.comparing(Map.Entry::getValue));
+                    return maxAction.getKey();
+                } else {
+                    Map.Entry<CheckersMove, Integer> minAction = Collections.min(moveScores.entrySet(), Comparator.comparing(Map.Entry::getValue));
+                    return minAction.getKey();
+                }
             }
-
         }
         return null;
     }
-
-
 
     public Integer getUtility(CheckersBoard board, CheckersBoard.Player myPlayer) {
         int numberOfPiecesMyPlayer = board.countPiecesOfPlayer(myPlayer);

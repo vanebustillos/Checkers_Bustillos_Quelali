@@ -19,7 +19,6 @@ public class App {
         CheckersPlayer player1 = new GrayRandomBot();
         CheckersPlayer player2 = new BustillosQuelaliBot();
         //CheckersPlayer player2 = new BustillosQuelali_iterativeBot();
-        //CheckersPlayer player2 = new BustillosQuelai_montecarloBot();
 
         Optional<CheckersPlayer> loser = game.play(player1, player2);
         loser.ifPresent(//
